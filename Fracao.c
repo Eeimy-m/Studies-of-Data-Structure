@@ -34,5 +34,5 @@ int obterDenominador(Fracao* f) {
 }
 
 void liberarFracao(Fracao *f) {
-    fraa(f);
+    free(f);
 }
