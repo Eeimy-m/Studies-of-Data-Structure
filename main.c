@@ -11,7 +11,7 @@ int main() {
     Fracao* soma = somarFracao(f1, f2); 
 
     printf("Soma = %d/%d\n", obterNumerador(soma), obterDenominador(soma)); //isso é necessário pois não definimos struct de fração nesse arq
-    printf("F2 em decimal: %f", converterParaDecimal(f2));
+    printf("F2 em decimal: %.2f", converterParaDecimal(f2));
 
     liberarFracao(f1);
     liberarFracao(f2);
