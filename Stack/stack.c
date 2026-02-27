@@ -29,9 +29,21 @@ int stackNotFull (Stack* p) {
 int push(Stack* p, int value) {
     if(fullStack(p)) 
         return ERROR;
+        
     else {
         p->topo++;
         p->item[p->topo];
+        return SUCCESS;
+    }
+}
+
+int pop(Stack* p, int* value) {
+    if(stackNotFull(p))
+        return ERROR;
+
+    else {
+        *value = p->item[p->topo];
+        p->topo--;
         return SUCCESS;
     }
 }
