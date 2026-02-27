@@ -6,5 +6,5 @@ typedef struct stack Stack;
 Stack* createStack();
 int push(Stack* p, int value);
 int pop(Stack* p, int* value);
-int peek(Stack* p);
+int peek(Stack* p, int* value);
 void destroy(Stack* p);

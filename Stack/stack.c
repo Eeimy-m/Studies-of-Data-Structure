@@ -29,7 +29,7 @@ int stackNotFull (Stack* p) {
 int push(Stack* p, int value) {
     if(fullStack(p)) 
         return ERROR;
-        
+
     else {
         p->topo++;
         p->item[p->topo];
@@ -46,4 +46,18 @@ int pop(Stack* p, int* value) {
         p->topo--;
         return SUCCESS;
     }
+}
+
+int peek(Stack* p, int *value) {
+    if(stackNotFull(p)) 
+        return  ERROR;
+    
+    else {
+        *value = p->item[p->topo];
+        return SUCCESS;
+    }
+}
+
+void destroy(Stack* p) {
+    free(p);
 }
