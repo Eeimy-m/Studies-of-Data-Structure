@@ -6,24 +6,24 @@
 
 struct stack {
     int item[MAXTAM];
-    int topo;
+    int peek;
 };
 
 Stack* createStack() {
     Stack* p = (Stack*)malloc(sizeof(Stack));
 
     if(p != NULL) {
-        p->topo = -1;
+        p->peek = -1;
     }
     return p;
 }
 
 int fullStack(Stack* p) {
-    return p->topo == MAXTAM - 1;
+    return p->peek == MAXTAM - 1;
 }
 
 int stackNotFull (Stack* p) {
-    return p->topo == -1;
+    return p->peek == -1;
 }
 
 int push(Stack* p, int value) {
@@ -31,8 +31,8 @@ int push(Stack* p, int value) {
         return ERROR;
 
     else {
-        p->topo++;
-        p->item[p->topo];
+        p->peek++;
+        p->item[p->peek];
         return SUCCESS;
     }
 }
@@ -42,8 +42,8 @@ int pop(Stack* p, int* value) {
         return ERROR;
 
     else {
-        *value = p->item[p->topo];
-        p->topo--;
+        *value = p->item[p->peek];
+        p->peek--;
         return SUCCESS;
     }
 }
@@ -53,7 +53,7 @@ int peek(Stack* p, int *value) {
         return  ERROR;
     
     else {
-        *value = p->item[p->topo];
+        *value = p->item[p->peek];
         return SUCCESS;
     }
 }
