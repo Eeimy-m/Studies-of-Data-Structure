@@ -8,3 +8,5 @@ int push(Stack* p, int value);
 int pop(Stack* p, int* value);
 int peek(Stack* p, int* value);
 void destroy(Stack* p);
+
+void showStack(Stack* p);

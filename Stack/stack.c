@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <stack.h>
+#include "stack.h"
 #include <stdio.h>
 
 #define MAXTAM 5
@@ -22,7 +22,7 @@ int fullStack(Stack* p) {
     return p->peek == MAXTAM - 1;
 }
 
-int stackNotFull (Stack* p) {
+int emptyStack (Stack* p) {
     return p->peek == -1;
 }
 
@@ -32,13 +32,13 @@ int push(Stack* p, int value) {
 
     else {
         p->peek++;
-        p->item[p->peek];
+        p->item[p->peek] = value;
         return SUCCESS;
     }
 }
 
 int pop(Stack* p, int* value) {
-    if(stackNotFull(p))
+    if(emptyStack(p))
         return ERROR;
 
     else {
@@ -49,7 +49,7 @@ int pop(Stack* p, int* value) {
 }
 
 int peek(Stack* p, int *value) {
-    if(stackNotFull(p)) 
+    if(emptyStack(p)) 
         return  ERROR;
     
     else {
@@ -60,4 +60,15 @@ int peek(Stack* p, int *value) {
 
 void destroy(Stack* p) {
     free(p);
+}
+
+void showStack(Stack* p) {
+    if(emptyStack(p))
+        printf("Empty stack");
+
+    else {
+        for(int i = p->peek; i>=0; i--) {
+            printf("\n%d", p->item[i]);
+        }
+    }
 }
